@@ -1,4 +1,5 @@
 import {useEffect, useState} from 'react'
+import useFetch from '../../hooks/useFetch';
 
 const myHeaders = new Headers();
 myHeaders.append("X-RapidAPI-Key", "1931756393msh75489006095d296p1bd52bjsn2a4cfd2e7bb2");
@@ -14,30 +15,23 @@ type exchangeData={
     name:string;
 };
 
+type exchangeResponse={
+  returnedData : exchangeData[],
+  isLoading:boolean
+}
+
 export default function CryptoExchange() {
-    const initialState : exchangeData[]= []
-    const [data,setdata] = useState(initialState) ;
+    // const initialState : exchangeData[]= []
+    // const [data,setdata] = useState(initialState) ;
 
-    useEffect(() => {
-        const fetchExchanges = async () => {
-            
-            const request = await fetch("https://twelve-data1.p.rapidapi.com/cryptocurrency_exchanges",requestOptions)
-            const promise = await request.json()
-           
-            const {data:requestedData} = promise
-           
-            setdata(requestedData);
-        }
-
-        fetchExchanges()
-    },[])
-
+    const {returnedData,isLoading}: exchangeResponse = useFetch("https://twelve-data1.p.rapidapi.com/cryptocurrency_exchanges",requestOptions)
+        
     const listOfExchanges = (): any =>
-         data.map(item=> <li>{item.name}</li>)
+         returnedData.map(item=> <li>{item.name}</li>)
     
 
     return (<>
-    <h1>List Of Exchanges</h1>
+          <h1>List Of Exchanges</h1>
            <ul>
              {listOfExchanges()}
            </ul>
