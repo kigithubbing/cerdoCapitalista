@@ -1,5 +1,7 @@
 import { apiBaseUrl, headerAPICall } from '../../constants';
 import useFetch from '../../hooks/useFetch';
+import { DataLoading } from '../DataLoading';
+import ErrorMessage from '../ErrorMessage';
 
 const requestOptions :RequestInit= {
   method: 'GET',
@@ -13,21 +15,25 @@ type exchangeData={
 
 type exchangeResponse={
   returnedData : exchangeData[],
-  isLoading:boolean
+  isLoading:boolean,
+  hasError: boolean,
+  error : string 
 }
 
 export default function CryptoExchange() {
     const apiURL:string = `${apiBaseUrl}/cryptocurrency_exchanges`
-    const {returnedData,isLoading}: exchangeResponse = useFetch(apiURL,requestOptions)
-        
+    const {returnedData,isLoading, hasError, error}: exchangeResponse = useFetch(apiURL,requestOptions)
+    if (error !== "") { console.log(error)}   
     const listOfExchanges = (): any =>
          returnedData.map(item=> <li>{item.name}</li>)
     
+         if(hasError) return <ErrorMessage message={error} />
+         if(isLoading) return <DataLoading />
 
     return (<>
           <h1>List Of Crypto Exchanges</h1>
            <ul>
-             {listOfExchanges()}
+             { listOfExchanges()}
            </ul>
         </>)
 }
