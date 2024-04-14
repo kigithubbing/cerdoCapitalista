@@ -2,6 +2,7 @@ import { apiBaseUrl, headerAPICall } from '../../constants';
 import useFetch from '../../hooks/useFetch';
 import { DataLoading } from '../DataLoading';
 import ErrorMessage from '../ErrorMessage';
+import Mosaic from '../Mosaic';
 
 const requestOptions :RequestInit= {
   method: 'GET',
@@ -25,15 +26,14 @@ export default function CryptoExchange() {
     const {returnedData,isLoading, hasError, error}: exchangeResponse = useFetch(apiURL,requestOptions)
     if (error !== "") { console.log(error)}   
     const listOfExchanges = (): any =>
-         returnedData.map(item=> <li>{item.name}</li>)
+         returnedData.map(item=> /*<Mosaic name={item.name} />*/ <li>item.name</li>)
     
          if(hasError) return <ErrorMessage message={error} />
          if(isLoading) return <DataLoading />
 
     return (<>
           <h1>List Of Crypto Exchanges</h1>
-           <ul>
-             { listOfExchanges()}
-           </ul>
+          <ul>{listOfExchanges()}</ul>
+             
         </>)
 }

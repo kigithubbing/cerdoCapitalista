@@ -15,6 +15,11 @@ function Index() {
                 <p>Mercado de Valores</p>
                 </NavLink>
             </div>
+            <div>
+                <NavLink to={'/test'}>
+                    <p>Test</p>
+                </NavLink>
+            </div>
         </div>
     )
 }
