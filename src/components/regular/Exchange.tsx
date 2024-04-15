@@ -17,7 +17,7 @@ export default function Exchange ()
     returnedData.map(item=> <li>{item.name}</li>)
    
     if(hasError) return <ErrorMessage message={error} />
-   if (isLoading) return <DataLoading/>
+    if(isLoading) return <DataLoading/>
 
     return (<>
         <h1>List Of Exchanges</h1>

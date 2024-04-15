@@ -1,10 +1,5 @@
 import { useState, useEffect } from "react";
-type fetchedObject ={
-    returnedData: any[],
-    isLoading : boolean,
-    hasError: boolean,
-    error : string
-}
+import { fetchedObject } from "../types/userTypes";
 
 export default function useFetch(url:string, requestOptions: RequestInit) : fetchedObject {
     const initialEmptyArray : any[] = []
@@ -38,7 +33,7 @@ export default function useFetch(url:string, requestOptions: RequestInit) : fetc
                }
             } catch (err:any) {
                 setHasError(true)
-                let error :Error = err
+                let error :TypeError = err
                 setError(error.message)
             } finally {
                 setLoading(false)
