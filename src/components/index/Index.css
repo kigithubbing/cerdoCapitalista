@@ -1,0 +1,17 @@
+.centered-form {
+
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 200px;
+  }
+
+  .centered-form label,
+  .centered-form input,
+  .centered-form button,
+  .centered-form select {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+  }
