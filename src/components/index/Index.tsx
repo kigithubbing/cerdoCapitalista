@@ -12,8 +12,17 @@ type FormData = {
     name:string ,
     level:number
 }
-function Index() {
 
+function UnicodeAcceptedTest()  {
+try {
+    new RegExp('\\p{L}', 'u');
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+function Index() {
+    const browserAcceptsUnicode: boolean = UnicodeAcceptedTest();
     const {register,handleSubmit,formState: {errors} } = useForm<FormData>();
     function setWholeData(data:FormData,submitted:boolean) {
         console.log(data)
@@ -31,7 +40,9 @@ function Index() {
         <form onSubmit={handleSubmit(onSubmit)} className="centered-form">
             <div >
                 <label htmlFor="name">Name:
-                    <input type="textbox"  {...register("name",{required:"Your name is required.", pattern: /^[A-Z|a-z]{3,}(\s[A-Z|a-z]+)*/})} />
+                    <input type="textbox"  {...register("name",{required:"Your name is required."
+                    ,pattern :  { value : browserAcceptsUnicode ? /^(\p{L}+((-\p{L}+)|\s\p{L}+|'\p{L}+)*){3,}$/iu :  /^[A-Z]{3,}((-[A-Z]+)|\s[A-Z]+)*$/i , message: "Name should be at least three characters long" }
+                     } ) } />
                 </label>
                 {errors.name  && <span>{errors.name.message}</span>}
             </div>

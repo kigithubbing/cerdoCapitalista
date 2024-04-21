@@ -22,3 +22,7 @@ Pattern on input validation is a great feature, even some say if you have a prob
 
 #Css
 I suck on how to design a good html, excuse me for sucking hehe.
+
+#Regular Expressions
+
+I was able to use Regular expressions to tests for the name field, and learned about Unicode characters and how to test'em and also learned to test if current browser supports this feature.
