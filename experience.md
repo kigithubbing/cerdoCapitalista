@@ -26,3 +26,7 @@ I suck on how to design a good html, excuse me for sucking hehe.
 #Regular Expressions
 
 I was able to use Regular expressions to tests for the name field, and learned about Unicode characters and how to test'em and also learned to test if current browser supports this feature.
+
+#Zustand
+I was able to apply Zustand to user detais data, and succesfully know that I could take away useState regarding such data, because it turned out to be obsolete at that point.
+I see that create is now deprecated, unfortunately that was the only approach I know so far.

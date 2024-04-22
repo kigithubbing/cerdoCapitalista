@@ -2,15 +2,13 @@ import { NavLink } from "react-router-dom"
 import {FormProvider, useForm} from "react-hook-form"
 import './Index.css'
 import { useState } from "react"
+import { UserFormData } from "../../types/userTypes"
+import { useUserDetailsStore } from "../../stores/useUserDetailsStore"
 enum levels {
     Unselected,
     Basic,
     Medium,
     High
-}
-type FormData = {
-    name:string ,
-    level:number
 }
 
 function UnicodeAcceptedTest()  {
@@ -22,21 +20,26 @@ try {
   }
 }
 function Index() {
+    const [user,createUser] = useUserDetailsStore((state) =>[
+        state.user, state.createUser
+]);
+
     const browserAcceptsUnicode: boolean = UnicodeAcceptedTest();
-    const {register,handleSubmit,formState: {errors} } = useForm<FormData>();
-    function setWholeData(data:FormData,submitted:boolean) {
+    const {register,handleSubmit,formState: {errors} } = useForm<UserFormData>();
+    const onSubmit= (data:UserFormData) => { 
         console.log(data)
-        setFormData(data)
-        setIsFormSubmitted(submitted)
-    }
-    const onSubmit= (data:FormData) => { setWholeData(data,true) }
-    const onFailSubmit = (data:FormData) =>  { setWholeData(data,false) }
+        setIsFormSubmitted(true)
+        createUser(data)
+     }
     
-    const initialFormData:FormData = {name: '', level:0}
-    const [formData,setFormData] = useState( initialFormData) ;
     const [isFormSubmitted,setIsFormSubmitted] = useState (false);
     return (
         <>
+        {isFormSubmitted &&
+        <div>
+           <h2> Welcome {user.name}</h2>
+        </div>
+        }
         <form onSubmit={handleSubmit(onSubmit)} className="centered-form">
             <div >
                 <label htmlFor="name">Name:
