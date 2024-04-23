@@ -31,9 +31,12 @@ I was able to use Regular expressions to tests for the name field, and learned a
 I was able to apply Zustand to user detais data, and succesfully know that I could take away useState regarding such data, because it turned out to be obsolete at that point.
 I see that create is now deprecated, unfortunately that was the only approach I know so far.
 
-#Thoughts on commit #missingCommitID
+#Thoughts on commit 8f4d5de
 #CSS
 Once again CSS, I added red color to span to denote when an error in the form appears. It was difficult to add the CSS rule because of CSS rule applying and specificity.
 It was kinda interesting that if the CSS rule for a span was placed before one for a label, the rule for span would not be applied.
 Also I had some trouble on stacking the divs vertically, I knew about position:absolute thing; 0,0 correspond to the lower right corner of the screen and the values for top and left would offset the element's position to the Y and X axis accordingly.
-So in this commit (#missingCommitID) it was mostly CSS.
+So in this commit (8f4d5de) it was mostly CSS.
+
+#Zustand 
+For the commit (@Missing commit Id), I worked with the get status in Zustand, and I was able to retrieve the information for a user that had already filled his information and submitted the form.
