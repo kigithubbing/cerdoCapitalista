@@ -1,17 +1,35 @@
+.box {
+  position: absolute;
+  left: 35%;
+  top: 10%;
+}
+
 .centered-form {
+  width: 300px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 20px;
+}
 
-    width: 300px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin: 200px;
-  }
+.center {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1px;
+}
 
-  .centered-form label,
-  .centered-form input,
-  .centered-form button,
-  .centered-form select {
-    display: block;
-    width: 100%;
-    margin-bottom: 10px;
-  }
+​ .centered-form label,
+.centered-form input,
+.centered-form button,
+.centered-form select {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.centered-form span {
+  color: red;
+  display: block;
+}
