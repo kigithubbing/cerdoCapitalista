@@ -1,3 +1,5 @@
+import { Guid } from "guid-typescript"
+
 export type fetchedObject ={
     returnedData: any[],
     isLoading : boolean,
@@ -6,6 +8,7 @@ export type fetchedObject ={
 }
 
 export type UserFormData = {
+    id: Guid,
     name:string ,
     level:number
 }
@@ -14,8 +17,18 @@ export interface UserDetailsStore{
     user: UserFormData;
     createUser: (userData: UserFormData) => void;
     getUser:  () => UserFormData;
-    
 }
 
-export const InitialUserData : UserFormData = { name: "" , level : -1 }
+export type UserFavorite = {
+    id: Guid ,
+    favorite : string []
+}
+
+export interface UserFavoriteStore {
+    userFavorite : UserFavorite,
+    setUserFavorite : (data : {id:Guid,fav:string}) => void ;
+}
+
+export const InitialUserData : UserFormData = { id:Guid.createEmpty(), name: "" , level : -1 }
+export const InitialUserFavorite : UserFavorite = { id: Guid.createEmpty(), favorite: [] }
 

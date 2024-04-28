@@ -3,6 +3,8 @@ import useFetch from '../../hooks/useFetch';
 import { DataLoading } from '../DataLoading';
 import ErrorMessage from '../ErrorMessage';
 import Mosaic from '../Mosaic';
+import { useUserDetailsStore } from '../../stores/useUserDetailsStore';
+import '../userBox.css'
 
 const requestOptions :RequestInit= {
   method: 'GET',
@@ -24,6 +26,9 @@ type exchangeResponse={
 export default function CryptoExchange() {
     const apiURL:string = `${apiBaseUrl}/cryptocurrency_exchanges`
     const {returnedData,isLoading, hasError, error}: exchangeResponse = useFetch(apiURL,requestOptions)
+    const [user,_,__] = useUserDetailsStore(state => [
+      state.user,state.createUser, state.getUser
+  ]);
     
     const listOfExchanges = (): any =>
          returnedData.map(item=> <Mosaic name={item.name} /> )
@@ -32,6 +37,9 @@ export default function CryptoExchange() {
          if(isLoading) return <DataLoading />
 
     return (<>
+          <div id="user">
+            Hi, {user.name}
+          </div>
           <h1>List Of Crypto Exchanges</h1>
           <ul>{listOfExchanges()}</ul>
              

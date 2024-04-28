@@ -40,3 +40,6 @@ So in this commit (8f4d5de) it was mostly CSS.
 
 #Zustand 
 For the commit (@Missing commit Id), I worked with the get status in Zustand, and I was able to retrieve the information for a user that had already filled his information and submitted the form.
+
+#Zustand
+I made the second use of Zustand, I learnt that not only it can be fired upon a form submit, just by calling a JS function is enough.

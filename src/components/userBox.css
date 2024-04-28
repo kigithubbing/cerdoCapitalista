@@ -1,0 +1,11 @@
+#user {
+ float: right;
+ text-align: left;
+}
+.title h2{
+    width: 85%;
+    display: inline-block;
+}
+.title span {
+    position:sticky;
+}
