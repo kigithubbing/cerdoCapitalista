@@ -1,8 +1,3 @@
-import { coinMarketBaseUrl, coinMarketHeaders , proCoinMarketBaseUrl } from "../constants"
-import useFetch from "../hooks/useFetch"
-import { fetchedObject } from "../types/userTypes"
-import { DataLoading } from "./DataLoading"
-import ErrorMessage from "./ErrorMessage"
 import { cryptoExchanges } from "../assets/coinMarket/CryptoExchanges"
 import {fiatCurrencies} from "../assets/miscelanous/fiatCurrencies"
 import { useUserFavoriteStore } from "../stores/useUserFavoriteStore"
@@ -31,7 +26,7 @@ const fiatCoins = details?.fiats.map(f=> currencies.filter(c=>  f.replace(" ",""
 
 //  console.log(details?.fiats.every( mon=> fiatCurrencies?.currencies.forEach(curr=> mon.replace(" ","") !== curr.abbreviation) ) )
 const [userFavorite,setFavorite] = useUserFavoriteStore ((favoriteState )=> [ favoriteState.userFavorite, favoriteState.setUserFavorite])
-const [user,_,getUser] = useUserDetailsStore ( detailStore => [detailStore.user, detailStore.createUser, detailStore.getUser])
+const [_,__,getUser] = useUserDetailsStore ( detailStore => [detailStore.user, detailStore.createUser, detailStore.getUser])
 const addFavorite = (atomName:string) => {
     const {id:userId} = getUser()
     setFavorite( {id:userId,fav:atomName})
