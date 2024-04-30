@@ -10,7 +10,7 @@ export const fiatCurrencies = {
     },{
         "name" : "Hong Kong Dollar",
         "abbreviation" : "HKD",
-        "coinImage" : "https://i.ucoin.net/coin/47/685/47685314-2/hong_kong-1-dollar-1994.jpg"
+        "coinImage" : "https://i.ebayimg.com/images/g/P48AAOSwJKljQy6Z/s-l1600.jpg"
     }, {
         "name" : "Chinese Yuan overseas",
         "abbreviation" : "CNH",

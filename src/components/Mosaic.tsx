@@ -22,7 +22,7 @@ const details = cryptoExchanges.data.exchanges.find(exchanges=> exchanges.slug =
 //  )
 
 const fiatCoins = details?.fiats.map(f=> currencies.filter(c=>  f.replace(" ","") === c.abbreviation ) ).flat()
-    // console.log(fiatCoins)
+     console.log(fiatCoins)
 
 //  console.log(details?.fiats.every( mon=> fiatCurrencies?.currencies.forEach(curr=> mon.replace(" ","") !== curr.abbreviation) ) )
 const [userFavorite,setFavorite] = useUserFavoriteStore ((favoriteState )=> [ favoriteState.userFavorite, favoriteState.setUserFavorite])
@@ -37,7 +37,7 @@ return(
     <div key={exchangeName} id={details?.id.toString()}>
         <div className="title">
         <h2><img src={details?.logo}/> {props.name}</h2>
-        <input type="image" src="/src/assets/vecteezy_illustration-vector-graphic-of-star_9315440.svg" width={95} height={70}
+        <input type="image" src="src/assets/vecteezy_illustration-vector-graphic-of-star_9315440.svg" width={95} height={70}
         onClick={()=> addFavorite(exchangeName)} />
         </div>
         <hr></hr>
