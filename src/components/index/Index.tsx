@@ -45,7 +45,7 @@ function Index() {
                 <div className="center">
                     <h1>Home of capitalist swines.</h1>
                     <h4 style={{ marginTop: -30 }}>or those who want to become</h4>
-                    <img height={150} src="src/assets/piggy/il_fullxfull.1270738567_ms47.webp" alt="Bourbon" />
+                    <img height={150} src="/src/assets/piggy/il_fullxfull.1270738567_ms47.webp" alt="Bourbon" />
                 </div>
                 {!isFormSubmitted &&
                     <div className="center" >
