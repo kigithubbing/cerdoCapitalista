@@ -37,7 +37,7 @@ return(
     <div key={exchangeName} id={details?.id.toString()}>
         <div className="title">
         <h2><img src={details?.logo}/> {props.name}</h2>
-        <input type="image" src="/src/assets/vecteezy_illustration-vector-graphic-of-star_9315440.svg" width={95} height={70}
+        <input type="image" src="/src/assets/stars-png-612.png" width={53} height={45}
         onClick={()=> addFavorite(exchangeName)} />
         </div>
         <hr></hr>
