@@ -2,7 +2,7 @@ import { cryptoExchanges } from "../assets/coinMarket/CryptoExchanges"
 import {fiatCurrencies} from "../assets/miscelanous/fiatCurrencies"
 import { useUserFavoriteStore } from "../stores/useUserFavoriteStore"
 import { useUserDetailsStore } from "../stores/useUserDetailsStore"
-
+import starImage from "../assets/stars-png-612.png"
 
 
 type currenciesAsset = {
@@ -37,7 +37,7 @@ return(
     <div key={exchangeName} id={details?.id.toString()}>
         <div className="title">
         <h2><img src={details?.logo}/> {props.name}</h2>
-        <input type="image" src="src/components/stars-png-612.png" width={53} height={45}
+        <input type="image" src={starImage} width={53} height={45}
         onClick={()=> addFavorite(exchangeName)} />
         </div>
         <hr></hr>
